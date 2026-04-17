@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML.ENGINEER // PORTFOLIO</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <div class="loadbar" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════
+       NAV
+  ═══════════════════════════════════ -->
+  <nav class="site-nav">
+    <a href="#home" class="nav-logo">CAIUÃ UTIDA</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <div class="status-dot"></div>
+      <span>SYS:ONLINE</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ═══════════════════════════════════
+         HERO
+    ═══════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <!-- Vertical accent lines -->
+      <div class="hero-line" style="right:20%" aria-hidden="true"></div>
+      <div class="hero-line" style="right:38%; opacity:.4;" aria-hidden="true"></div>
+
+      <!-- VHS Background -->
+      <div class="hero-bg" aria-hidden="true">
+        <video class="hero-video" muted playsinline preload="auto">
+          <source src="imgs/bgHero.mp4" type="video/mp4">
+        </video>
+        <div class="vhs-tracking"></div>
+        <div class="vhs-band"></div>
+        <div class="vhs-noise"></div>
+      </div>
+
+      <!-- HUD corners -->
+      <div class="corner corner--tl" aria-hidden="true"></div>
+      <div class="corner corner--tr" aria-hidden="true"></div>
+      <div class="corner corner--bl" aria-hidden="true"></div>
+      <div class="corner corner--br" aria-hidden="true"></div>
+
+      <p class="hero-coords" aria-hidden="true">
+        LAT:37.7749° &nbsp;/&nbsp; LONG:122.4194° &nbsp;/&nbsp; UTC-08:00 &nbsp;/&nbsp; NODE:ML-ENG-01
+      </p>
+
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Machine Learning Engineer</div>
+
+        <h1 class="hero-name" data-text="Caiuã Utida">Caiuã Utida</h1>
+
+        <div class="hero-role" aria-label="Roles">
+          <span class="bracket">[&nbsp;</span>
+          <div class="role-wheel">
+            <div class="role-wheel-inner" id="roleWheel">
+              <span>ML ENGINEER</span>
+              <span>AI RESEARCHER</span>
+              <span>DEEP LEARNER</span>
+              <span>DATA SCIENTIST</span>
+              <span>MODEL BUILDER</span>
+            </div>
+          </div>
+          <span class="bracket">&nbsp;]</span>
+        </div>
+
+        <p class="hero-desc">
+          Building intelligent systems that perceive, learn, and reason.
+          Specializing in large-scale model training, generative AI, and
+          production ML infrastructure.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn--primary">Explore Work ▶</a>
+          <a href="#contact" class="btn btn--ghost">Contact ▶▶</a>
+        </div>
+      </div>
+
+      <p class="hero-statusbar" aria-hidden="true">
+        <span>◈ NEURAL_NET:ACTIVE</span>
+        <span class="pipe">&nbsp;|&nbsp;</span>
+        <span>V.2026.1</span>
+        <span class="pipe">&nbsp;|&nbsp;</span>
+        <span>MODELS:47 // PAPERS:12</span>
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════ -->
+    <div class="bleed">
+      <section id="about" aria-label="About">
+        <div class="eyebrow" data-n="01">Profile</div>
+        <h2 class="section-h reveal d1">
+          Building at the<br><span class="accent">frontier of AI</span>
+        </h2>
+        <div class="about-layout">
+          <div class="about-bio reveal d2">
+            <p>
+              I'm a <strong>machine learning engineer</strong> with 5+ years designing and
+              deploying large-scale AI systems. My work spans from research prototypes to
+              production systems serving millions of users.
+            </p>
+            <p>
+              Previously at <strong>DeepMind</strong> and <strong>Anthropic</strong>, working
+              on transformer architectures, RLHF pipelines, and distributed training
+              infrastructure for frontier language models.
+            </p>
+            <p>
+              I care deeply about model alignment, efficient inference, and making AI systems
+              that are both powerful and reliable. When not training models I publish research,
+              mentor engineers, and contribute to open-source ML tooling.
+            </p>
+          </div>
+          <aside class="profile-panel reveal d3" aria-label="Quick facts">
+            <div class="profile-row">
+              <span class="k">LOCATION</span>
+              <span class="v">San Francisco, CA</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">CURRENT_ROLE</span>
+              <span class="v hi">Staff ML Engineer</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">EDUCATION</span>
+              <span class="v">M.Sc. CS — Stanford</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">PAPERS_PUBLISHED</span>
+              <span class="v">12 (NeurIPS, ICML)</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">MODELS_DEPLOYED</span>
+              <span class="v hi">47</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">LANGUAGES</span>
+              <span class="v">Python, CUDA, Rust</span>
+            </div>
+            <div class="profile-row">
+              <span class="k">STATUS</span>
+              <span class="v hi">Open to Opportunities</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         SKILLS
+    ═══════════════════════════════════ -->
+    <div class="bleed bleed--alt">
+      <section id="skills" aria-label="Skills">
+        <div class="eyebrow" data-n="02">Capabilities</div>
+        <h2 class="section-h reveal d1">Technical <span class="accent">Stack</span></h2>
+        <div class="skills-grid">
+          <div class="skill-cell reveal d1">
+            <div class="skill-cat">Core</div>
+            <div class="skill-name">Machine Learning</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="96%"></div></div>
+            <div class="skill-pct">96%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">JAX</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Transformers</span>
+            </div>
+          </div>
+          <div class="skill-cell reveal d2">
+            <div class="skill-cat">Systems</div>
+            <div class="skill-name">Distributed Training</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="90%"></div></div>
+            <div class="skill-pct">90%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">FSDP</span>
+              <span class="skill-tag">DeepSpeed</span>
+              <span class="skill-tag">Megatron</span>
+            </div>
+          </div>
+          <div class="skill-cell reveal d3">
+            <div class="skill-cat">Research</div>
+            <div class="skill-name">Generative AI</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="92%"></div></div>
+            <div class="skill-pct">92%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">LLMs</span>
+              <span class="skill-tag">Diffusion</span>
+              <span class="skill-tag">RLHF</span>
+              <span class="skill-tag">RAG</span>
+            </div>
+          </div>
+          <div class="skill-cell reveal d2">
+            <div class="skill-cat">Infrastructure</div>
+            <div class="skill-name">MLOps</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="85%"></div></div>
+            <div class="skill-pct">85%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">Triton</span>
+              <span class="skill-tag">MLflow</span>
+            </div>
+          </div>
+          <div class="skill-cell reveal d3">
+            <div class="skill-cat">Hardware</div>
+            <div class="skill-name">CUDA / GPU</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="82%"></div></div>
+            <div class="skill-pct">82%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">CUDA C++</span>
+              <span class="skill-tag">Triton</span>
+              <span class="skill-tag">Flash Attn</span>
+            </div>
+          </div>
+          <div class="skill-cell reveal d4">
+            <div class="skill-cat">Data</div>
+            <div class="skill-name">Data Engineering</div>
+            <div class="skill-bar"><div class="skill-bar-fill" data-w="80%"></div></div>
+            <div class="skill-pct">80%</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Spark</span>
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Airflow</span>
+              <span class="skill-tag">Parquet</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         PROJECTS
+    ═══════════════════════════════════ -->
+    <div class="bleed">
+      <section id="projects" aria-label="Selected projects">
+        <div class="eyebrow" data-n="03">Selected Work</div>
+        <h2 class="section-h reveal d1">Recent <span class="accent">Projects</span></h2>
+        <div class="project-list">
+          <a href="#" class="project-item reveal d2">
+            <div class="proj-num">01</div>
+            <div>
+              <div class="proj-tag">LLM · Alignment · 2025</div>
+              <div class="proj-title">ContextForge LLM</div>
+              <p class="proj-desc">
+                Extended context-window training framework enabling 512k-token attention
+                without quadratic memory blowup. Ring attention and gradient checkpointing
+                reduced memory 4× while maintaining throughput on A100 clusters.
+              </p>
+              <div class="proj-chips">
+                <span class="proj-chip">PyTorch</span>
+                <span class="proj-chip">Flash Attention 3</span>
+                <span class="proj-chip">FSDP</span>
+                <span class="proj-chip">CUDA</span>
+              </div>
+            </div>
+            <div class="proj-arrow" aria-hidden="true">↗</div>
+          </a>
+
+          <a href="#" class="project-item reveal d3">
+            <div class="proj-num">02</div>
+            <div>
+              <div class="proj-tag">Diffusion · Vision · 2024</div>
+              <div class="proj-title">NeuralDraw Studio</div>
+              <p class="proj-desc">
+                Production image generation pipeline with custom ControlNet conditioning,
+                style-LoRA fine-tuning, and latency-optimized inference (&lt;200ms p99 at
+                50k req/day). Deployed on A100 cluster with Triton Inference Server.
+              </p>
+              <div class="proj-chips">
+                <span class="proj-chip">Stable Diffusion</span>
+                <span class="proj-chip">LoRA</span>
+                <span class="proj-chip">Triton Inference</span>
+                <span class="proj-chip">AWS</span>
+              </div>
+            </div>
+            <div class="proj-arrow" aria-hidden="true">↗</div>
+          </a>
+
+          <a href="#" class="project-item reveal d4">
+            <div class="proj-num">03</div>
+            <div>
+              <div class="proj-tag">RLHF · Open Source · 2024</div>
+              <div class="proj-title">RewardLab Framework</div>
+              <p class="proj-desc">
+                Open-source RLHF training framework supporting DPO, PPO, and novel reward
+                shaping methods. Used by 3,000+ researchers worldwide — 2.1k GitHub stars,
+                cited in 18 NeurIPS/ICML papers.
+              </p>
+              <div class="proj-chips">
+                <span class="proj-chip">RLHF</span>
+                <span class="proj-chip">DPO</span>
+                <span class="proj-chip">Open Source</span>
+                <span class="proj-chip">Python</span>
+              </div>
+            </div>
+            <div class="proj-arrow" aria-hidden="true">↗</div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════ -->
+    <div class="bleed bleed--alt">
+      <section id="contact" aria-label="Contact">
+        <div class="contact-layout">
+          <div class="contact-intro reveal d1">
+            <div class="eyebrow" data-n="04">Contact</div>
+            <h2 class="section-h">
+              Let's build<br>something <span class="accent">real</span>
+            </h2>
+            <p>
+              Open to research collaborations, staff/principal ML roles, and
+              technical advisory. I respond to every message.
+            </p>
+            <nav class="contact-links" aria-label="Contact links">
+              <a href="mailto:alex@chenml.dev" class="contact-link">
+                <span class="lbl">Email</span>alex@chenml.dev
+              </a>
+              <a href="#" class="contact-link">
+                <span class="lbl">GitHub</span>github.com/alexchen-ml
+              </a>
+              <a href="#" class="contact-link">
+                <span class="lbl">LinkedIn</span>linkedin.com/in/alexchen
+              </a>
+              <a href="#" class="contact-link">
+                <span class="lbl">Scholar</span>Google Scholar Profile
+              </a>
+            </nav>
+          </div>
+
+          <div class="reveal d3">
+            <form class="term-form" onsubmit="return false;" aria-label="Contact form">
+              <div class="term-bar">
+                <div class="term-dot"></div>
+                <div class="term-dot"></div>
+                <div class="term-dot"></div>
+                <span>SEND_MESSAGE.sh</span>
+              </div>
+              <div class="form-row">
+                <label class="form-lbl" for="f-name">name</label>
+                <input id="f-name" type="text" class="form-ctrl" placeholder="Your name" autocomplete="name">
+              </div>
+              <div class="form-row">
+                <label class="form-lbl" for="f-email">email</label>
+                <input id="f-email" type="email" class="form-ctrl" placeholder="your@email.com" autocomplete="email">
+              </div>
+              <div class="form-row">
+                <label class="form-lbl" for="f-msg">message</label>
+                <textarea id="f-msg" class="form-ctrl" placeholder="What are you building?"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+                TRANSMIT ▶
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="site-footer">
+    <p>© 2026 CAIUÃ UTIDA // ML.ENGINEER // ALL RIGHTS RESERVED</p>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Scholar</a>
+      <a href="#">Resume</a>
+    </nav>
+  </footer>
+
+  <script>
+    // ── Scroll-driven video ──
+    const heroVideo = document.querySelector('.hero-video');
+    const heroSection = document.querySelector('.hero');
+
+    function scrubVideo() {
+      if (!heroVideo || !heroVideo.duration || isNaN(heroVideo.duration)) return;
+      const scrolled = Math.max(0, -heroSection.getBoundingClientRect().top);
+      const progress  = Math.min(1, scrolled / Math.max(1, heroSection.offsetHeight));
+      heroVideo.currentTime = progress * heroVideo.duration;
+    }
+    if (heroVideo) {
+      heroVideo.load();
+      heroVideo.addEventListener('loadedmetadata', scrubVideo);
+      heroVideo.addEventListener('canplay', scrubVideo);
+      window.addEventListener('scroll', () => requestAnimationFrame(scrubVideo), { passive: true });
+      scrubVideo();
+    }
+
+    // ── Role wheel — measure actual rendered span height, sync container ──
+    const wheelEl   = document.querySelector('.role-wheel');
+    const wheelInner = document.getElementById('roleWheel');
+    const roleSpans  = wheelInner.querySelectorAll('span');
+    const roleCount  = roleSpans.length;
+    let roleIdx = 0;
+    let spanH = 0;
+
+    function initWheel() {
+      spanH = roleSpans[0].offsetHeight;
+      wheelEl.style.height = spanH + 'px';
+    }
+    // Run after fonts are painted
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(initWheel);
+    } else {
+      window.addEventListener('load', initWheel);
+    }
+    // Fallback in case fonts.ready resolves before glyphs measure correctly
+    setTimeout(initWheel, 400);
+
+    setInterval(() => {
+      roleIdx = (roleIdx + 1) % roleCount;
+      wheelInner.style.transform = `translateY(-${roleIdx * spanH}px)`;
+    }, 2400);
+
+    // ── Character-substitution glitch on hero name ──
+    const heroNameEl = document.querySelector('.hero-name');
+    const ORIG_NAME  = 'Caiuã Utida';
+    const GLITCH_CHARS = '@#$%_?!/|{}\\[]~=+<>*0123456789;:.^&-';
+
+    function randChar() {
+      return GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+    }
+
+    function runGlitch() {
+      const totalFrames = 7 + Math.floor(Math.random() * 9);   // 7-15 frames
+      const frameMs     = 50 + Math.floor(Math.random() * 30); // 50-80ms per frame
+      let frame = 0;
+
+      heroNameEl.classList.add('is-glitching');
+
+      const tick = setInterval(() => {
+        const chars = Array.from(ORIG_NAME);
+        // Replace 2–5 random non-space characters each frame
+        const swaps = 2 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < swaps; i++) {
+          const idx = Math.floor(Math.random() * chars.length);
+          if (chars[idx] !== ' ') chars[idx] = randChar();
+        }
+        // Occasionally scramble an entire word
+        if (Math.random() < 0.2) {
+          const wordStart = Math.random() < 0.5 ? 0 : 7;
+          const wordLen   = wordStart === 0 ? 5 : 5;
+          for (let j = wordStart; j < wordStart + wordLen; j++) {
+            if (chars[j] !== ' ' && chars[j] !== undefined) chars[j] = randChar();
+          }
+        }
+
+        const glitched = chars.join('');
+        heroNameEl.textContent = glitched;
+        heroNameEl.setAttribute('data-text', glitched);
+
+        // Briefly switch to a fallback monospace font on ~25% of frames
+        if (Math.random() < 0.25) {
+          heroNameEl.classList.add('glitch-font');
+        } else {
+          heroNameEl.classList.remove('glitch-font');
+        }
+
+        frame++;
+        if (frame >= totalFrames) {
+          clearInterval(tick);
+          heroNameEl.textContent = ORIG_NAME;
+          heroNameEl.setAttribute('data-text', ORIG_NAME);
+          heroNameEl.classList.remove('is-glitching', 'glitch-font');
+          // Random pause between 1.2s and 4s before next burst
+          setTimeout(runGlitch, 1200 + Math.random() * 2800);
+        }
+      }, frameMs);
+    }
+
+    // Start after the CRT power-on animation finishes (0.3s delay + 0.9s anim)
+    setTimeout(runGlitch, 2800);
+
+    // ── Scroll reveal + skill bar trigger ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w;
+        });
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.skill-cell').forEach(el => observer.observe(el));
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
