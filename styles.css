@@ -13,23 +13,25 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    --bg:          #060A0E;
-    --bg-2:        #0B1018;
-    --bg-3:        #10181F;
+    --bg:          #050810;
+    --bg-2:        #090D18;
+    --bg-3:        #0E1520;
     --cyan:        #00F5D4;
-    --cyan-dim:    rgba(0,245,212,.12);
-    --magenta:     #FF0080;
+    --cyan-dim:    rgba(0,245,212,.10);
+    --magenta:     #FF0055;
     --amber:       #FFB300;
     --text:        #B8CCE0;
     --text-bright: #E8F4FF;
     --text-muted:  #3A5060;
-    --border:      rgba(0,245,212,.10);
-    --border-hi:   rgba(0,245,212,.30);
-    --glow-c:      0 0 18px rgba(0,245,212,.45);
-    --glow-m:      0 0 18px rgba(255,0,128,.45);
-    --ff-display:  'Press Start 2P', 'VHS OSD', monospace;
+    --border:      rgba(0,245,212,.08);
+    --border-hi:   rgba(0,245,212,.28);
+    --glow-c:      0 0 20px rgba(0,245,212,.50);
+    --glow-m:      0 0 20px rgba(255,0,85,.50);
+    /* VT323 = large CRT display text. Press Start 2P = small pixel labels only. */
+    --ff-display:  'VT323', 'VHS OSD', monospace;
+    --ff-label:    'Press Start 2P', 'VHS OSD', monospace;
     --ff-mono:     'VT323', 'VHS OSD', monospace;
-    --ff-vhs:      'Press Start 2P', 'VHS OSD', monospace;
+    --ff-vhs:      'VT323', 'VHS OSD', monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -38,7 +40,7 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--ff-mono);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -47,8 +49,8 @@ body {
 body::before {
     content: '';
     position: fixed; inset: 0;
-    background-image: radial-gradient(circle, rgba(0,245,212,.07) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-image: radial-gradient(circle, rgba(0,245,212,.06) 1px, transparent 1px);
+    background-size: 28px 28px;
     pointer-events: none;
     z-index: 0;
 }
@@ -60,13 +62,12 @@ body::after {
     background: repeating-linear-gradient(
         0deg,
         transparent 0px, transparent 2px,
-        rgba(0,0,0,.10) 2px, rgba(0,0,0,.10) 4px
+        rgba(0,0,0,.08) 2px, rgba(0,0,0,.08) 4px
     );
     pointer-events: none;
     z-index: 1;
 }
 
-/* All real content above overlays */
 nav, main, footer { position: relative; z-index: 2; }
 
 /* ─────────────────────────────────────────
@@ -75,34 +76,34 @@ nav, main, footer { position: relative; z-index: 2; }
 .site-nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
-    height: 58px;
+    height: 54px;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 2.5rem;
-    background: rgba(6,10,14,.92);
-    backdrop-filter: blur(14px);
+    background: rgba(5,8,16,.94);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
 }
 
 .nav-logo {
-    font-family: var(--ff-display);
-    font-size: .62rem;
+    font-family: var(--ff-label);
+    font-size: .55rem;
     letter-spacing: .06em;
     color: var(--cyan);
     text-decoration: none;
-    display: flex; align-items: center; gap: .45rem;
+    display: flex; align-items: center; gap: .5rem;
     text-shadow: var(--glow-c);
 }
-.nav-logo::before { content: '◈'; font-size: .9rem; }
+.nav-logo::before { content: '◈'; font-size: .65rem; }
 
 .nav-links { list-style: none; display: flex; }
 .nav-links a {
-    font-family: var(--ff-mono);
-    font-size: .88rem;
-    letter-spacing: .06em;
+    font-family: var(--ff-label);
+    font-size: .48rem;
+    letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--text-muted);
     text-decoration: none;
-    padding: .35rem 1.1rem;
+    padding: .4rem 1rem;
     border-left: 1px solid var(--border);
     transition: color .05s steps(1), background .05s steps(1);
 }
@@ -110,7 +111,8 @@ nav, main, footer { position: relative; z-index: 2; }
 .nav-links a:hover { color: var(--cyan); background: var(--bg-2); }
 
 .nav-status {
-    font-size: .8rem;
+    font-family: var(--ff-label);
+    font-size: .44rem;
     letter-spacing: .06em;
     color: var(--text-muted);
     display: flex; align-items: center; gap: .5rem;
@@ -136,7 +138,6 @@ nav, main, footer { position: relative; z-index: 2; }
     place-items: center;
     padding: 80px 2.5rem 4rem;
     position: relative;
-    /* Override section's max-width:1180px so background covers full viewport */
     max-width: none !important;
     width: 100% !important;
     margin-left: 0 !important;
@@ -151,53 +152,53 @@ nav, main, footer { position: relative; z-index: 2; }
 }
 
 .corner { position: absolute; width: 44px; height: 44px; }
-.corner--tl { top:70px; left:20px;   border-top:1px solid var(--border-hi); border-left:1px solid var(--border-hi); }
-.corner--tr { top:70px; right:20px;  border-top:1px solid var(--border-hi); border-right:1px solid var(--border-hi); }
+.corner--tl { top:64px; left:20px;   border-top:1px solid var(--border-hi); border-left:1px solid var(--border-hi); }
+.corner--tr { top:64px; right:20px;  border-top:1px solid var(--border-hi); border-right:1px solid var(--border-hi); }
 .corner--bl { bottom:20px; left:20px;  border-bottom:1px solid var(--border-hi); border-left:1px solid var(--border-hi); }
 .corner--br { bottom:20px; right:20px; border-bottom:1px solid var(--border-hi); border-right:1px solid var(--border-hi); }
 
 .hero-coords {
-    position: absolute; top:72px; left:50%;
+    position: absolute; top:66px; left:50%;
     transform: translateX(-50%);
-    font-size: .8rem;
-    letter-spacing: .12em;
+    font-family: var(--ff-label);
+    font-size: .42rem;
+    letter-spacing: .14em;
     color: var(--text-muted);
     white-space: nowrap;
     animation: vhs-static-in .5s steps(6) .1s both;
 }
 
-.hero-inner { text-align: center; max-width: 960px; }
+.hero-inner { text-align: center; max-width: 1040px; }
 
 .hero-eyebrow {
-    font-size: .92rem;
-    letter-spacing: .16em;
+    font-family: var(--ff-label);
+    font-size: .52rem;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--text-muted);
     display: flex; align-items: center; justify-content: center; gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     animation: tracking-reveal .55s steps(12) .18s both;
 }
 .hero-eyebrow::before, .hero-eyebrow::after {
     content: '';
-    display: block; width: 2.5rem; height: 1px;
+    display: block; width: 3rem; height: 1px;
     background: var(--border-hi);
 }
 
-/* ── Big glitch name ── */
+/* ── Big glitch name — VT323 has perfect CRT metrics ── */
 .hero-name {
     font-family: var(--ff-vhs);
-    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-size: clamp(4.5rem, 14vw, 11rem);
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: .06em;
+    line-height: .95;
+    letter-spacing: .04em;
     color: var(--text-bright);
-    margin-bottom: .2em;
+    margin-bottom: .1em;
     position: relative;
     overflow: visible;
     animation: crt-power-on .9s steps(16) .3s both;
-    image-rendering: pixelated;
 }
-/* JS-driven glitch states */
 .hero-name.is-glitching {
     text-shadow: 5px 0 var(--magenta), -5px 0 var(--cyan);
     filter: brightness(1.2);
@@ -210,20 +211,19 @@ nav, main, footer { position: relative; z-index: 2; }
 /* Cycling role */
 .hero-role {
     display: flex; align-items: center; justify-content: center; gap: .4rem;
-    font-size: clamp(1rem, 2.5vw, 1.35rem);
-    letter-spacing: .1em;
+    font-family: var(--ff-display);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    letter-spacing: .06em;
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
     animation: vhs-static-in .5s steps(8) .5s both;
 }
 .hero-role .bracket { color: var(--cyan); }
 
 .role-wheel {
     overflow: hidden;
-    /* height set by JS to match actual rendered span height */
     min-width: 22ch;
     display: flex; justify-content: center;
-    /* clip top/bottom to hide neighbouring spans, allow horizontal overflow for glow */
     clip-path: inset(0 -20px);
 }
 .role-wheel-inner {
@@ -231,20 +231,20 @@ nav, main, footer { position: relative; z-index: 2; }
     transition: transform .18s steps(4);
 }
 .role-wheel-inner span {
-    /* No fixed height — use natural line height so VHS OSD glyphs aren't cut */
     display: flex; align-items: center; justify-content: center;
-    padding: .15em 0 .2em;
+    padding: .1em 0 .14em;
     color: var(--cyan);
     text-shadow: var(--glow-c);
     white-space: nowrap;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 .hero-desc {
-    font-size: 1.05rem;
+    font-family: var(--ff-mono);
+    font-size: 1.3rem;
     line-height: 1.65;
     color: var(--text-muted);
-    max-width: 44ch;
+    max-width: 48ch;
     margin: 0 auto 2.5rem;
     animation: scanline-wipe .45s steps(14) .66s both;
 }
@@ -258,8 +258,9 @@ nav, main, footer { position: relative; z-index: 2; }
     position: absolute; bottom: 1.5rem; left: 50%;
     transform: translateX(-50%);
     display: flex; align-items: center; gap: 1.5rem;
-    font-size: .8rem;
-    letter-spacing: .1em;
+    font-family: var(--ff-label);
+    font-size: .42rem;
+    letter-spacing: .12em;
     color: var(--text-muted);
     white-space: nowrap;
     animation: vhs-static-in .4s steps(6) .96s both;
@@ -270,11 +271,11 @@ nav, main, footer { position: relative; z-index: 2; }
     BUTTONS
 ───────────────────────────────────────── */
 .btn {
-    font-family: var(--ff-mono);
-    font-size: 1rem;
+    font-family: var(--ff-label);
+    font-size: .52rem;
     letter-spacing: .1em;
     text-transform: uppercase;
-    padding: .55rem 1.75rem;
+    padding: .75rem 1.6rem;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: .45rem;
     cursor: pointer;
@@ -318,17 +319,18 @@ section {
 }
 
 .eyebrow {
-    font-size: .88rem;
-    letter-spacing: .12em;
+    font-family: var(--ff-label);
+    font-size: .48rem;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--cyan);
     display: flex; align-items: center; gap: .65rem;
-    margin-bottom: .9rem;
+    margin-bottom: .75rem;
 }
 .eyebrow::before {
     content: attr(data-n);
     color: var(--text-muted);
-    font-size: .88rem;
+    font-size: .48rem;
 }
 .eyebrow::after {
     content: '';
@@ -336,13 +338,14 @@ section {
     background: var(--border-hi);
 }
 
+/* VT323 at large sizes = sharp CRT terminal aesthetic, zero clipping */
 .section-h {
     font-family: var(--ff-display);
-    font-size: clamp(1.1rem, 2.4vw, 2rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     color: var(--text-bright);
-    line-height: 1.8;
-    overflow: visible;
+    line-height: 1;
     margin-bottom: 3rem;
+    overflow: visible;
 }
 .section-h .accent { color: var(--cyan); }
 
@@ -357,7 +360,7 @@ section {
 }
 
 .about-bio p {
-    font-size: .95rem;
+    font-size: 1.2rem;
     line-height: 1.75;
     color: var(--text-muted);
     margin-bottom: 1.15rem;
@@ -373,8 +376,9 @@ section {
 .profile-panel::before {
     content: 'PROFILE.DAT';
     position: absolute;
-    top: -.65rem; left: 1rem;
-    font-size: .8rem;
+    top: -.7rem; left: 1rem;
+    font-family: var(--ff-label);
+    font-size: .42rem;
     letter-spacing: .1em;
     background: var(--bg-2);
     padding: 0 .4rem;
@@ -387,11 +391,17 @@ section {
     align-items: baseline;
     padding: .55rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: .9rem;
+    font-size: 1.1rem;
     gap: 1rem;
 }
 .profile-row:last-child { border-bottom: none; }
-.profile-row .k { color: var(--text-muted); font-size: .82rem; letter-spacing: .04em; flex-shrink: 0; }
+.profile-row .k {
+    font-family: var(--ff-label);
+    font-size: .4rem;
+    letter-spacing: .04em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
 .profile-row .v { color: var(--text); text-align: right; }
 .profile-row .v.hi { color: var(--cyan); }
 
@@ -424,18 +434,19 @@ section {
 .skill-cell:hover::after { width: 100%; }
 
 .skill-cat {
-    font-size: .82rem;
+    font-family: var(--ff-label);
+    font-size: .42rem;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: .6rem;
+    margin-bottom: .5rem;
 }
 .skill-name {
     font-family: var(--ff-display);
-    font-size: .7rem;
+    font-size: 2rem;
     color: var(--text-bright);
-    margin-bottom: .9rem;
-    line-height: 1.8;
+    margin-bottom: .6rem;
+    line-height: 1;
     overflow: visible;
 }
 .skill-bar {
@@ -453,16 +464,18 @@ section {
     transition: width .9s steps(22);
 }
 .skill-pct {
-    font-size: .82rem;
+    font-family: var(--ff-label);
+    font-size: .38rem;
     color: var(--text-muted);
     text-align: right;
-    margin-bottom: .9rem;
+    margin-bottom: .8rem;
 }
 .skill-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
 .skill-tag {
-    font-size: .8rem;
+    font-family: var(--ff-label);
+    font-size: .36rem;
     letter-spacing: .04em;
-    padding: .18rem .48rem;
+    padding: .22rem .5rem;
     border: 1px solid var(--border);
     color: var(--text-muted);
 }
@@ -479,48 +492,55 @@ section {
 .project-item {
     background: var(--bg);
     display: grid;
-    grid-template-columns: 5.5rem 1fr 2.5rem;
+    grid-template-columns: 5rem 1fr 2.5rem;
     gap: 2rem;
     align-items: start;
     padding: 2.5rem;
     text-decoration: none;
     color: inherit;
     transition: background .05s steps(1);
+    border-left: 3px solid transparent;
+    transition: background .05s steps(1), border-left-color .05s steps(1);
 }
-.project-item:hover { background: var(--bg-2); }
+.project-item:hover {
+    background: var(--bg-2);
+    border-left-color: var(--cyan);
+}
 .project-item:hover .proj-arrow { transform: translate(4px,-4px); color: var(--cyan); }
 
 .proj-num {
     font-family: var(--ff-display);
-    font-size: 1.4rem;
+    font-size: 3.2rem;
     color: var(--border-hi);
-    line-height: 1.8;
+    line-height: 1;
     overflow: visible;
 }
 .proj-tag {
-    font-size: .82rem;
+    font-family: var(--ff-label);
+    font-size: .38rem;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--magenta);
-    margin-bottom: .45rem;
+    margin-bottom: .5rem;
 }
 .proj-title {
     font-family: var(--ff-display);
-    font-size: .85rem;
+    font-size: 2.2rem;
     color: var(--text-bright);
-    margin-bottom: .9rem;
-    line-height: 1.8;
+    margin-bottom: .5rem;
+    line-height: 1;
     overflow: visible;
 }
 .proj-desc {
-    font-size: .92rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     color: var(--text-muted);
 }
 .proj-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .9rem; }
 .proj-chip {
-    font-size: .8rem;
-    padding: .15rem .48rem;
+    font-family: var(--ff-label);
+    font-size: .36rem;
+    padding: .2rem .5rem;
     border: 1px solid var(--border);
     color: var(--text-muted);
 }
@@ -542,14 +562,14 @@ section {
 }
 
 .contact-intro p {
-    font-size: .95rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     color: var(--text-muted);
     margin-bottom: 2.25rem;
 }
-.contact-links { display: flex; flex-direction: column; gap: .7rem; }
+.contact-links { display: flex; flex-direction: column; gap: .8rem; }
 .contact-link {
-    font-size: .92rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
     text-decoration: none;
     display: flex; align-items: baseline; gap: .75rem;
@@ -557,7 +577,8 @@ section {
 }
 .contact-link:hover { color: var(--cyan); }
 .contact-link .lbl {
-    font-size: .82rem;
+    font-family: var(--ff-label);
+    font-size: .38rem;
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -577,7 +598,8 @@ section {
     padding-bottom: 1.25rem;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
-    font-size: .82rem;
+    font-family: var(--ff-label);
+    font-size: .4rem;
     letter-spacing: .1em;
     color: var(--text-muted);
 }
@@ -590,11 +612,12 @@ section {
 .form-row { margin-bottom: 1.2rem; }
 .form-lbl {
     display: block;
-    font-size: .88rem;
+    font-family: var(--ff-label);
+    font-size: .4rem;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: .4rem;
+    margin-bottom: .5rem;
 }
 .form-lbl::before { content: '> '; color: var(--cyan); }
 .form-ctrl {
@@ -603,7 +626,7 @@ section {
     border: 1px solid var(--border);
     color: var(--text);
     font-family: var(--ff-mono);
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: .65rem .875rem;
     outline: none;
     transition: border-color .05s steps(1);
@@ -622,10 +645,16 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     padding: 1.25rem 2.5rem;
     display: flex; justify-content: space-between; align-items: center;
 }
-.site-footer p { font-size: .84rem; letter-spacing: .07em; color: var(--text-muted); }
+.site-footer p {
+    font-family: var(--ff-label);
+    font-size: .36rem;
+    letter-spacing: .07em;
+    color: var(--text-muted);
+}
 .footer-nav { display: flex; gap: 1.5rem; }
 .footer-nav a {
-    font-size: .84rem;
+    font-family: var(--ff-label);
+    font-size: .36rem;
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -637,8 +666,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
 /* ─────────────────────────────────────────
     RETRO ANIMATIONS
 ───────────────────────────────────────── */
-
-/* CRT monitor powering on — for hero name */
 @keyframes crt-power-on {
     0%   { transform: scaleY(0.02) scaleX(1.14); filter: brightness(7);   opacity: 1; }
     7%   { transform: scaleY(0.25) scaleX(1.05); filter: brightness(4); }
@@ -650,7 +677,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { filter: none; }
 }
 
-/* VHS static burst then snap clear — for hero sub-elements */
 @keyframes vhs-static-in {
     0%   { opacity: 0; filter: contrast(4) brightness(5); transform: translateX(-12px); }
     18%  { opacity: 1; filter: contrast(2.5) brightness(3); transform: translateX(6px); }
@@ -660,7 +686,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { filter: none; opacity: 1; }
 }
 
-/* Tracking error reveal — scan left to right for eyebrow */
 @keyframes tracking-reveal {
     0%   { clip-path: inset(0 100% 0 0); }
     55%  { clip-path: inset(0 6% 0 0);  }
@@ -669,13 +694,11 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { clip-path: inset(0 0% 0 0);  }
 }
 
-/* Scanline wipe top→bottom — for hero-desc */
 @keyframes scanline-wipe {
     0%   { clip-path: inset(0 0 100% 0); }
     100% { clip-path: inset(0 0 0% 0);   }
 }
 
-/* Retro block wipe — scroll-triggered section reveals */
 @keyframes retro-block-wipe {
     0%   { clip-path: inset(0 0 100% 0); }
     78%  { clip-path: inset(0 0 5% 0);   }
@@ -684,7 +707,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { clip-path: inset(0 0 0% 0);   }
 }
 
-/* Scroll-triggered reveals */
 .reveal { clip-path: inset(0 0 100% 0); opacity: 1; transition: none; }
 .reveal.in { animation: retro-block-wipe .42s steps(14) forwards; }
 .reveal.in.d1 { animation-delay: .06s; }
@@ -692,7 +714,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
 .reveal.in.d3 { animation-delay: .34s; }
 .reveal.in.d4 { animation-delay: .48s; }
 
-/* Page-load progress bar */
 .loadbar {
     position: fixed; top: 0; left: 0;
     height: 2px;
@@ -703,8 +724,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     animation: loading 1s steps(22) .05s forwards;
 }
 @keyframes loading { to { width: 100%; } }
-
-/* vhs-rgb-track removed — glitch handled by JS character substitution */
 
 /* ─────────────────────────────────────────
     HERO VHS BACKGROUND
@@ -725,15 +744,14 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     user-select: none;
 }
 
-/* VHS scan line */
 .vhs-tracking { position: absolute; inset: 0; }
 .vhs-tracking::before {
     content: '';
     position: absolute; left: 0; right: 0;
     height: 2px;
     background: linear-gradient(90deg,
-        transparent 0%, rgba(255,0,128,.4) 15%,
-        rgba(0,245,212,.6) 50%, rgba(255,0,128,.4) 85%, transparent 100%);
+        transparent 0%, rgba(255,0,85,.4) 15%,
+        rgba(0,245,212,.6) 50%, rgba(255,0,85,.4) 85%, transparent 100%);
     filter: blur(1px);
     animation: vhs-scan 9s linear infinite;
     top: -4px; opacity: 0;
@@ -745,7 +763,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { top: 102%;  opacity: 0; }
 }
 
-/* VHS tracking band */
 .vhs-band { position: absolute; inset: 0; }
 .vhs-band::before {
     content: '';
@@ -753,7 +770,7 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     height: 80px;
     background: linear-gradient(0deg,
         transparent 0%, rgba(0,245,212,.025) 40%,
-        rgba(255,0,128,.025) 60%, transparent 100%);
+        rgba(255,0,85,.025) 60%, transparent 100%);
     animation: vhs-band-scroll 13s linear 3s infinite;
     top: -90px; opacity: 0;
 }
@@ -764,7 +781,6 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     100% { top: 108%;  opacity: 0; }
 }
 
-/* VHS noise burst */
 .vhs-noise { position: absolute; inset: 0; animation: vhs-noise-flicker .08s steps(1) infinite; opacity: 0; }
 .vhs-noise::before {
     content: '';
@@ -779,15 +795,13 @@ textarea.form-ctrl { resize: vertical; min-height: 110px; }
     95% { opacity: 0.6; }
 }
 
-/* Dark overlay over video */
 .hero-bg::after {
     content: '';
     position: absolute; inset: 0;
     background:
-        radial-gradient(ellipse 70% 80% at 50% 50%, rgba(6,10,14,.45) 0%, rgba(6,10,14,.75) 100%),
-        linear-gradient(180deg, rgba(6,10,14,.3) 0%, rgba(6,10,14,.6) 100%);
+        radial-gradient(ellipse 70% 80% at 50% 50%, rgba(5,8,16,.45) 0%, rgba(5,8,16,.75) 100%),
+        linear-gradient(180deg, rgba(5,8,16,.3) 0%, rgba(5,8,16,.6) 100%);
 }
 
-/* Keep hero content above background */
 .hero-inner { position: relative; z-index: 1; }
 .hero-coords, .hero-statusbar, .hero-line, .corner { position: absolute; z-index: 1; }
