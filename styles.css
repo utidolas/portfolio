@@ -1,6 +1,4 @@
-/* ─────────────────────────────────────────
-    VHS VCR OSD FONT
-───────────────────────────────────────── */
+/* VHS OSD kept as fallback only — primary fonts loaded via Google Fonts */
 @font-face {
     font-family: 'VHS OSD';
     src: url('vhs-vcr-osd.ttf') format('truetype');
@@ -29,9 +27,9 @@
     --border-hi:   rgba(0,245,212,.30);
     --glow-c:      0 0 18px rgba(0,245,212,.45);
     --glow-m:      0 0 18px rgba(255,0,128,.45);
-    --ff-display:  'VHS OSD', monospace;
-    --ff-mono:     'VHS OSD', monospace;
-    --ff-vhs:      'VHS OSD', monospace;
+    --ff-display:  'Press Start 2P', 'VHS OSD', monospace;
+    --ff-mono:     'VT323', 'VHS OSD', monospace;
+    --ff-vhs:      'Press Start 2P', 'VHS OSD', monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -40,6 +38,7 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--ff-mono);
+    font-size: 1.15rem;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -86,8 +85,8 @@ nav, main, footer { position: relative; z-index: 2; }
 
 .nav-logo {
     font-family: var(--ff-display);
-    font-size: 1.1rem;
-    letter-spacing: .08em;
+    font-size: .62rem;
+    letter-spacing: .06em;
     color: var(--cyan);
     text-decoration: none;
     display: flex; align-items: center; gap: .45rem;
@@ -187,13 +186,14 @@ nav, main, footer { position: relative; z-index: 2; }
 /* ── Big glitch name ── */
 .hero-name {
     font-family: var(--ff-vhs);
-    font-size: clamp(4rem, 12vw, 9rem);
+    font-size: clamp(2rem, 5.5vw, 4rem);
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: .1em;
+    line-height: 1.6;
+    letter-spacing: .06em;
     color: var(--text-bright);
-    margin-bottom: .1em;
+    margin-bottom: .2em;
     position: relative;
+    overflow: visible;
     animation: crt-power-on .9s steps(16) .3s both;
     image-rendering: pixelated;
 }
@@ -223,6 +223,8 @@ nav, main, footer { position: relative; z-index: 2; }
     /* height set by JS to match actual rendered span height */
     min-width: 22ch;
     display: flex; justify-content: center;
+    /* clip top/bottom to hide neighbouring spans, allow horizontal overflow for glow */
+    clip-path: inset(0 -20px);
 }
 .role-wheel-inner {
     display: flex; flex-direction: column;
@@ -231,11 +233,11 @@ nav, main, footer { position: relative; z-index: 2; }
 .role-wheel-inner span {
     /* No fixed height — use natural line height so VHS OSD glyphs aren't cut */
     display: flex; align-items: center; justify-content: center;
-    padding: .1em 0;
+    padding: .15em 0 .2em;
     color: var(--cyan);
     text-shadow: var(--glow-c);
     white-space: nowrap;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .hero-desc {
@@ -336,9 +338,10 @@ section {
 
 .section-h {
     font-family: var(--ff-display);
-    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-size: clamp(1.1rem, 2.4vw, 2rem);
     color: var(--text-bright);
-    line-height: 1.05;
+    line-height: 1.8;
+    overflow: visible;
     margin-bottom: 3rem;
 }
 .section-h .accent { color: var(--cyan); }
@@ -406,7 +409,7 @@ section {
     background: var(--bg-2);
     padding: 2rem;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 .skill-cell::after {
     content: '';
@@ -429,9 +432,11 @@ section {
 }
 .skill-name {
     font-family: var(--ff-display);
-    font-size: 1.1rem;
+    font-size: .7rem;
     color: var(--text-bright);
     margin-bottom: .9rem;
+    line-height: 1.8;
+    overflow: visible;
 }
 .skill-bar {
     height: 2px;
@@ -487,9 +492,10 @@ section {
 
 .proj-num {
     font-family: var(--ff-display);
-    font-size: 2.4rem;
+    font-size: 1.4rem;
     color: var(--border-hi);
-    line-height: 1;
+    line-height: 1.8;
+    overflow: visible;
 }
 .proj-tag {
     font-size: .82rem;
@@ -500,9 +506,11 @@ section {
 }
 .proj-title {
     font-family: var(--ff-display);
-    font-size: 1.35rem;
+    font-size: .85rem;
     color: var(--text-bright);
-    margin-bottom: .65rem;
+    margin-bottom: .9rem;
+    line-height: 1.8;
+    overflow: visible;
 }
 .proj-desc {
     font-size: .92rem;
